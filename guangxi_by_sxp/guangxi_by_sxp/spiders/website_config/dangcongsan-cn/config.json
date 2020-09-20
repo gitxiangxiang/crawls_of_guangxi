@@ -1,0 +1,96 @@
+{
+  "spider": "universal",
+  "website": "越南人民报中文版",
+  "describe": "中文版",
+  "index": "http://cn.dangcongsan.vn/",
+  "settings": {
+    "USER_AGENT": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/60.0.3112.90 Safari/537.36"
+  },
+  "start_urls": [
+    "http://cn.dangcongsan.vn/"
+  ],
+  "allowed_domains": [
+    "dangcongsan.vn"
+  ],
+  "rules": "dangcongsan-cn",
+  "item": {
+    "class": "ChinhphuItem",
+    "loader": "ChinhphuLoader",
+    "datetime_format": "%H:%M %Y/%m/%d",
+    "attrs": {
+      "news_title": [
+        {
+          "method": "xpath",
+          "args": [
+            "//div[@class=\"detail-post\"]//h1[@class=\"post-title\"]/text()"
+          ]
+        }
+      ],
+      "news_content": [
+        {
+          "method": "xpath",
+          "args": [
+            "//div[@class=\"detail-post\"]//div[@class=\"post-content\"]//text()"
+          ]
+        }
+      ],
+      "public_date": [
+        {
+          "method": "xpath",
+          "args": [
+            "//div[@class=\"detail-post\"]//div[@class=\"post-head\"]//span[@class=\"post-subinfo\"]//text()"
+          ],
+          "re": "(\\d\\d:\\d\\d .*/.*/\\d{4})"
+        }
+      ],
+      "site": [
+        {
+          "method": "value",
+          "args": [
+            "http://cn.dangcongsan.vn/"
+          ]
+        }
+      ],
+      "author": [
+        {
+          "method": "value",
+          "args": [
+            "anonymous"
+          ]
+        }
+      ],
+      "media": [
+        {
+          "method": "value",
+          "args": [
+            "dangcongsan-cn"
+          ]
+        }
+      ],
+      "type": [
+        {
+          "method": "value",
+          "args": [
+            "None"
+          ]
+        }
+      ],
+      "abstract": [
+        {
+          "method": "xpath",
+          "args": [
+            "//div[@class=\"detail-post\"]//div[@class=\"post-summary\"]/h2/text()"
+          ]
+        }
+      ],
+      "url": [
+        {
+          "method": "attr",
+          "args": [
+            "url"
+          ]
+        }
+      ]
+    }
+  }
+}
