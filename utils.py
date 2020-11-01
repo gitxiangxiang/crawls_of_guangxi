@@ -30,6 +30,8 @@ def add_unique_index(collections):
     collections为集合的列表
     """
     client = pymongo.MongoClient(MONGO_URL)
+    admin = client['admin']
+    admin.authenticate('admin', 'abc123')
     db = client[MONGO_DB]
     collist = db.list_collection_names()
     for collection in collections:
