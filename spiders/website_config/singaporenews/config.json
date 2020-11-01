@@ -1,0 +1,97 @@
+{
+  "spider": "enter-navigations",
+  "website": "Singapore News",
+  "describe": "英语",
+  "index": "https://www.singaporenews.net/",
+  "settings": {
+    "USER_AGENT": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/60.0.3112.90 Safari/537.36"
+  },
+  "start_urls": [
+    "https://www.singaporenews.net/"
+  ],
+  "start_url_params": "singaporenews",
+  "allowed_domains": [
+    "singaporenews.net"
+  ],
+  "rules": "singaporenews",
+  "item": {
+    "class": "ChinhphuItem",
+    "loader": "ChinhphuLoader",
+    "datetime_format": "%H:%M | %Y/%m/%d",
+    "attrs": {
+      "news_title": [
+        {
+          "method": "xpath",
+          "args": [
+            "//div[@class=\"title_text\"]/h2/a/text()"
+          ]
+        }
+      ],
+      "news_content": [
+        {
+          "method": "xpath",
+          "args": [
+            "//div[@class=\"detail_text\"]//div[@class=\"text\"]//text()"
+          ]
+        }
+      ],
+      "public_date": [
+        {
+          "method": "xpath",
+          "args": [
+            "//div[@class=\"title_text\"]/p/text()"
+          ],
+          "re": "(\\d\\d .{3} \\d{4})"
+        }
+      ],
+      "site": [
+        {
+          "method": "value",
+          "args": [
+            "https://www.singaporenews.net/"
+          ]
+        }
+      ],
+      "author": [
+        {
+          "method": "xpath",
+          "args": [
+            "//div[@class=\"title_text\"]/p/text()"
+          ]
+        }
+      ],
+      "media": [
+        {
+          "method": "value",
+          "args": [
+            "singaporenews"
+          ]
+        }
+      ],
+      "type": [
+        {
+          "method": "value",
+          "args": [
+            "None"
+          ]
+        }
+      ],
+      "abstract": [
+        {
+          "method": "value",
+          "args": [
+            "None"
+          ]
+        }
+      ],
+      "url": [
+        {
+          "method": "attr",
+          "args": [
+            "url"
+          ]
+        }
+      ]
+    }
+  }
+}

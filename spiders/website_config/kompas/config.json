@@ -1,0 +1,97 @@
+{
+  "spider": "enter-navigations",
+  "website": "印尼罗盘报",
+  "describe": "未知",
+  "index": "http://www.kompas.com/",
+  "settings": {
+    "USER_AGENT": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/60.0.3112.90 Safari/537.36"
+  },
+  "start_urls": [
+    "http://www.kompas.com/"
+  ],
+  "start_url_params": "kompas",
+  "allowed_domains": [
+    "kompas.com"
+  ],
+  "rules": "kompas",
+  "item": {
+    "class": "ChinhphuItem",
+    "loader": "ChinhphuLoader",
+    "datetime_format": "%H:%M | %Y/%m/%d",
+    "attrs": {
+      "news_title": [
+        {
+          "method": "xpath",
+          "args": [
+            "//h1[@class=\"read__title\"]/text()"
+          ]
+        }
+      ],
+      "news_content": [
+        {
+          "method": "xpath",
+          "args": [
+            "//div[contains(@class, \"read__article\")]//div[@class=\"read__content\"]//p//text()"
+          ]
+        }
+      ],
+      "public_date": [
+        {
+          "method": "xpath",
+          "args": [
+            "//head//meta[@name=\"content_PublishedDate\"]/@content"
+          ],
+          "re": "(\\d{4}-\\d\\d-\\d\\d \\d\\d:\\d\\d:\\d\\d)"
+        }
+      ],
+      "site": [
+        {
+          "method": "value",
+          "args": [
+            "http://www.kompas.com/"
+          ]
+        }
+      ],
+      "author": [
+        {
+          "method": "value",
+          "args": [
+            "anonymous"
+          ]
+        }
+      ],
+      "media": [
+        {
+          "method": "value",
+          "args": [
+            "kompas"
+          ]
+        }
+      ],
+      "type": [
+        {
+          "method": "value",
+          "args": [
+            "None"
+          ]
+        }
+      ],
+      "abstract": [
+        {
+          "method": "value",
+          "args": [
+            "None"
+          ]
+        }
+      ],
+      "url": [
+        {
+          "method": "attr",
+          "args": [
+            "url"
+          ]
+        }
+      ]
+    }
+  }
+}

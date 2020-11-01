@@ -1,0 +1,97 @@
+{
+  "spider": "universal-dynamic-html",
+  "website": "国际日报",
+  "describe": "汉语",
+  "index": "http://www.guojiribao.com/shtml/index_gjrb.shtml",
+  "settings": {
+    "USER_AGENT": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/60.0.3112.90 Safari/537.36"
+  },
+  "start_urls": [
+    "http://www.guojiribao.com/shtml/index_gjrb.shtml"
+  ],
+  "start_url_params": "guojiribao",
+  "allowed_domains": [
+    "guojiribao.com"
+  ],
+  "rules": "guojiribao",
+  "item": {
+    "class": "ChinhphuItem",
+    "loader": "ChinhphuLoader",
+    "datetime_format": "%H:%M | %Y/%m/%d",
+    "attrs": {
+      "news_title": [
+        {
+          "method": "xpath",
+          "args": [
+            "//div[@class=\"contenta\"]//div[@class=\"hr1\"]//h3/text()"
+          ]
+        }
+      ],
+      "news_content": [
+        {
+          "method": "xpath",
+          "args": [
+            "//div[@class=\"contenta\"]//div[@class=\"con3 fgrey12\"]//text()"
+          ]
+        }
+      ],
+      "public_date": [
+        {
+          "method": "xpath",
+          "args": [
+            "//div[@class=\"fgrey12\"]/a/text()"
+          ],
+          "re": "(\\d{4}年\\d\\d月\\d\\d日)"
+        }
+      ],
+      "site": [
+        {
+          "method": "value",
+          "args": [
+            "http://www.guojiribao.com/shtml/index_gjrb.shtml"
+          ]
+        }
+      ],
+      "author": [
+        {
+          "method": "value",
+          "args": [
+            "anonymous"
+          ]
+        }
+      ],
+      "media": [
+        {
+          "method": "value",
+          "args": [
+            "guojiribao"
+          ]
+        }
+      ],
+      "type": [
+        {
+          "method": "value",
+          "args": [
+            "None"
+          ]
+        }
+      ],
+      "abstract": [
+        {
+          "method": "value",
+          "args": [
+            "None"
+          ]
+        }
+      ],
+      "url": [
+        {
+          "method": "attr",
+          "args": [
+            "url"
+          ]
+        }
+      ]
+    }
+  }
+}

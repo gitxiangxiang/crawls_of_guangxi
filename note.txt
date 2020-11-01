@@ -1,0 +1,16 @@
+需完善：
+    1、整理日志
+    2、为爬虫计数（完成）
+    3、优化通过自生成URL爬取的逻辑（添加监听器）
+    4、解决所爬信息位于不同页的问题
+网站列表
+    1、文莱婆罗洲公报网：http://borneobulletin.com.bn/ （动态追加）
+    2、泰国日报网（泰叻报）：http://www.thairath.co.th/home （动态追加）
+    3、暹罗早报网：http://www.siamrath.co.th/ （分页）(完成)
+    4、泰国民意报网：https://www.matichon.co.th/（分页）(完成)
+    5、曼谷邮报网：http://www.bangkokpost.com/（动态追加）
+    6、泰国国家报网：http://www.banmuang.co.th/（分页）(时间无法格式化)
+    7、印尼雅加达邮报网：http://www.thejakartapost.com/（无法访问，未知原因）
+    8、国际日报：http://www.guojiribao.com/shtml/index_gjrb.shtml(完成)
+    9、印尼罗盘报：http://www.kompas.com/(完成)
+    10、Singapore News：https://www.singaporenews.net/(无法访问且时间未格式化)

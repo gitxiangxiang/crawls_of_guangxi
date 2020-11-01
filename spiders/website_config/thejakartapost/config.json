@@ -1,0 +1,109 @@
+{
+  "spider": "universal-dynamic-html",
+  "website": "印尼雅加达邮报网",
+  "describe": "英语",
+  "index": "http://www.thejakartapost.com/",
+  "settings": {
+    "USER_AGENT": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/60.0.3112.90 Safari/537.36"
+  },
+  "start_urls": [
+    "https://www.thejakartapost.com/index"
+  ],
+  "start_url_params": "thejakartapost",
+  "allowed_domains": [
+    "thejakartapost.com"
+  ],
+  "rules": "thejakartapost",
+  "item": {
+    "class": "ChinhphuItem",
+    "loader": "ChinhphuLoader",
+    "datetime_format": "%H:%M | %Y/%m/%d",
+    "attrs": {
+      "news_title": [
+        {
+          "method": "xpath",
+          "args": [
+            "//div[contains(@class, \"main-single-page\")]//div[contains(@class, \"areaTitle\")]//h1[@class=\"title-large\"]/text()"
+          ]
+        }
+      ],
+      "news_content": [
+        {
+          "method": "xpath",
+          "args": [
+            "//div[contains(@class, \"main-single-page\")]//div[contains(@class, \"main-single\")]//span[@class=\"created\"]/text()"
+          ]
+        },
+        {
+          "method": "xpath",
+          "args": [
+            "//div[contains(@class, \"main-single-page\")]//div[contains(@class, \"main-single\")]//div[contains(@class, \"detailNews\")/p//text()"
+          ]
+        }
+      ],
+      "public_date": [
+        {
+          "method": "xpath",
+          "args": [
+            "//div[contains(@class, \"main-single-page\")]//div[contains(@class, \"main-single\")]//span[@class=\"day\"]"
+          ]
+        },
+        {
+          "method": "xpath",
+          "args": [
+            "//div[contains(@class, \"main-single-page\")]//div[contains(@class, \"main-single\")]//span[@class=\"time\"]"
+          ],
+          "re": "(\\d\\d:\\d\\d \\w\\w)"
+        }
+      ],
+      "site": [
+        {
+          "method": "value",
+          "args": [
+            "http://www.thejakartapost.com/"
+          ]
+        }
+      ],
+      "author": [
+        {
+          "method": "value",
+          "args": [
+            "anonymous"
+          ]
+        }
+      ],
+      "media": [
+        {
+          "method": "value",
+          "args": [
+            "thejakartapost"
+          ]
+        }
+      ],
+      "type": [
+        {
+          "method": "value",
+          "args": [
+            "None"
+          ]
+        }
+      ],
+      "abstract": [
+        {
+          "method": "value",
+          "args": [
+            "None"
+          ]
+        }
+      ],
+      "url": [
+        {
+          "method": "attr",
+          "args": [
+            "url"
+          ]
+        }
+      ]
+    }
+  }
+}

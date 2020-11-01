@@ -1,0 +1,97 @@
+{
+  "spider": "enter-navigations",
+  "website": "暹罗早报网",
+  "describe": "泰语",
+  "index": "http://www.siamrath.co.th/",
+  "settings": {
+    "USER_AGENT": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/60.0.3112.90 Safari/537.36"
+  },
+  "start_urls": [
+    "http://www.siamrath.co.th/"
+  ],
+  "start_url_params": "siamrath",
+  "allowed_domains": [
+    "siamrath.co.th"
+  ],
+  "rules": "siamrath",
+  "item": {
+    "class": "ChinhphuItem",
+    "loader": "ChinhphuLoader",
+    "datetime_format": "%H:%M | %Y/%m/%d",
+    "attrs": {
+      "news_title": [
+        {
+          "method": "xpath",
+          "args": [
+            "//h1[@class=\"page-header\"]//text()"
+          ]
+        }
+      ],
+      "news_content": [
+        {
+          "method": "xpath",
+          "args": [
+            "//div[@class=\"field-items\"]//p//text()"
+          ]
+        }
+      ],
+      "public_date": [
+        {
+          "method": "xpath",
+          "args": [
+            "//head//meta[@property=\"og:updated_time\"]/@content"
+          ],
+          "re": "(\\d{4}-\\d\\d-\\d\\dT\\d\\d:\\d\\d:\\d\\d)"
+        }
+      ],
+      "site": [
+        {
+          "method": "value",
+          "args": [
+            "http://www.siamrath.co.th/"
+          ]
+        }
+      ],
+      "author": [
+        {
+          "method": "value",
+          "args": [
+            "anonymous"
+          ]
+        }
+      ],
+      "media": [
+        {
+          "method": "value",
+          "args": [
+            "siamrath"
+          ]
+        }
+      ],
+      "type": [
+        {
+          "method": "value",
+          "args": [
+            "None"
+          ]
+        }
+      ],
+      "abstract": [
+        {
+          "method": "value",
+          "args": [
+            "None"
+          ]
+        }
+      ],
+      "url": [
+        {
+          "method": "attr",
+          "args": [
+            "url"
+          ]
+        }
+      ]
+    }
+  }
+}

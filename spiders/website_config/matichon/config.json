@@ -1,0 +1,97 @@
+{
+  "spider": "enter-navigations",
+  "website": "泰国民意报网",
+  "describe": "泰语版",
+  "index": "https://www.matichon.co.th/",
+  "settings": {
+    "USER_AGENT": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/60.0.3112.90 Safari/537.36"
+  },
+  "start_urls": [
+    "https://www.matichon.co.th/"
+  ],
+  "start_url_params": "matichon",
+  "allowed_domains": [
+    "matichon.co.th"
+  ],
+  "rules": "matichon",
+  "item": {
+    "class": "ChinhphuItem",
+    "loader": "ChinhphuLoader",
+    "datetime_format": "%H:%M | %Y/%m/%d",
+    "attrs": {
+      "news_title": [
+        {
+          "method": "xpath",
+          "args": [
+            "//div[@class=\"td-ss-main-content\"]//div[@class=\"td-post-header\"]//header[@class=\"td-post-title\"]/h1/text()"
+          ]
+        }
+      ],
+      "news_content": [
+        {
+          "method": "xpath",
+          "args": [
+            "//div[@class=\"td-post-content\"]//p/text()"
+          ]
+        }
+      ],
+      "public_date": [
+        {
+          "method": "xpath",
+          "args": [
+            "//head//meta[@property=\"article:published_time\"]/@content"
+          ],
+          "re": "(\\d{4}-\\d\\d-\\d\\dT\\d\\d:\\d\\d:\\d\\d)"
+        }
+      ],
+      "site": [
+        {
+          "method": "value",
+          "args": [
+            "https://www.matichon.co.th/"
+          ]
+        }
+      ],
+      "author": [
+        {
+          "method": "value",
+          "args": [
+            "anonymous"
+          ]
+        }
+      ],
+      "media": [
+        {
+          "method": "value",
+          "args": [
+            "matichon"
+          ]
+        }
+      ],
+      "type": [
+        {
+          "method": "value",
+          "args": [
+            "None"
+          ]
+        }
+      ],
+      "abstract": [
+        {
+          "method": "value",
+          "args": [
+            "None"
+          ]
+        }
+      ],
+      "url": [
+        {
+          "method": "attr",
+          "args": [
+            "url"
+          ]
+        }
+      ]
+    }
+  }
+}

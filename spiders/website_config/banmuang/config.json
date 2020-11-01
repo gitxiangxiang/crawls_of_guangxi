@@ -1,0 +1,97 @@
+{
+  "spider": "universal-dynamic-html",
+  "website": "泰国国家报网",
+  "describe": "泰语版",
+  "index": "http://www.banmuang.co.th/",
+  "settings": {
+    "USER_AGENT": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/60.0.3112.90 Safari/537.36"
+  },
+  "start_urls": [
+    "https://nhandan.org.vn/article/Paging?categoryId={1}&pageIndex={2}&pageSize=15&fromDate=01/01/2020&toDate=19/09/2020&displayView=PagingPartial"
+  ],
+  "start_url_params": "banmuang",
+  "allowed_domains": [
+    "banmuang.co.th"
+  ],
+  "rules": "banmuang",
+  "item": {
+    "class": "ChinhphuItem",
+    "loader": "ChinhphuLoader",
+    "datetime_format": "%H:%M | %Y/%m/%d",
+    "attrs": {
+      "news_title": [
+        {
+          "method": "xpath",
+          "args": [
+            "//div[@class=\"content\"]//div[@class=\"pull-left side-left\"]//div[@class=\"block details\"]/h3/text()"
+          ]
+        }
+      ],
+      "news_content": [
+        {
+          "method": "xpath",
+          "args": [
+            "//div[@class=\"content\"]//div[@class=\"pull-left side-left\"]//div[@class=\"block details\"]//div[@class=\"detail\"]//text()"
+          ]
+        }
+      ],
+      "public_date": [
+        {
+          "method": "xpath",
+          "args": [
+            "//div[@class=\"content\"]//div[@class=\"pull-left side-left\"]//div[@class=\"block details\"]/div[@class=\"time\"]/text()"
+          ],
+          "re": "(.*)"
+        }
+      ],
+      "site": [
+        {
+          "method": "value",
+          "args": [
+            "http://www.banmuang.co.th/"
+          ]
+        }
+      ],
+      "author": [
+        {
+          "method": "value",
+          "args": [
+            "anonymous"
+          ]
+        }
+      ],
+      "media": [
+        {
+          "method": "value",
+          "args": [
+            "banmuang"
+          ]
+        }
+      ],
+      "type": [
+        {
+          "method": "value",
+          "args": [
+            "None"
+          ]
+        }
+      ],
+      "abstract": [
+        {
+          "method": "value",
+          "args": [
+            "None"
+          ]
+        }
+      ],
+      "url": [
+        {
+          "method": "attr",
+          "args": [
+            "url"
+          ]
+        }
+      ]
+    }
+  }
+}
