@@ -1,2 +1,10 @@
-# crawls_of_guangxi
-Asean countries news website crawler
+## 使用说明：
+
+本项目所爬网站包含在“spider”目录下所列的文件夹，文件夹内为用于网站爬取的配置。
+
+文件夹的名称即网站的名称（域名）
+
+本项目的入口为根目录下的"main.py",运行时需携带一个且仅能携带一个参数，为所爬网站的名称。如：
+
+python3 main.py banmuang
+
