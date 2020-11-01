@@ -8,3 +8,9 @@
 
 python3 main.py banmuang
 
+## 目前存在的问题
+
+1. 有两个网站（singaporenews，banmuang）爬取的文章的时间未格式化，保存的是爬取时的时间。
+2. 数据库切换问题，需要修改两处代码。
+3. 一个网站（thejakartapost）被反爬，无法爬取
+
